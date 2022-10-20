@@ -1,0 +1,1054 @@
+{
+	"compiler": {
+		"version": "0.8.12+commit.f00d7308"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "player",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "requestId",
+						"type": "uint256"
+					}
+				],
+				"name": "Bet",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "requestId",
+						"type": "uint256"
+					}
+				],
+				"name": "Cancel",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint8",
+						"name": "version",
+						"type": "uint8"
+					}
+				],
+				"name": "Initialized",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "requestId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "luckyNumber",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum DiceType.GameResult",
+						"name": "result",
+						"type": "uint8"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "totalPrize",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "rewards",
+						"type": "uint256"
+					}
+				],
+				"name": "Roll",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newBankerAdvantageFeeRate",
+						"type": "uint256"
+					}
+				],
+				"name": "UpdateBankerAdvantageFeeRate",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint32",
+						"name": "newCallbackGasLimit",
+						"type": "uint32"
+					}
+				],
+				"name": "UpdateCallbackGasLimit",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newCancelPeriod",
+						"type": "uint256"
+					}
+				],
+				"name": "UpdateCancelPeriod",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newReferralFeeRate",
+						"type": "uint256"
+					}
+				],
+				"name": "UpdateReferralFeeRate",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "MAX_NUMBER",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "RATE_DENOMINATOR",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "bankerAdvantageFeeRate",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "referrer",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "number",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum DiceType.Direction",
+						"name": "direction",
+						"type": "uint8"
+					}
+				],
+				"name": "bet",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "referrer",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "number",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum DiceType.Direction",
+						"name": "direction",
+						"type": "uint8"
+					}
+				],
+				"name": "betNativeToken",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "gasPriceWei",
+						"type": "uint256"
+					}
+				],
+				"name": "calculateGasRequired",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "requestId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "randomWords",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256",
+						"name": "rewards",
+						"type": "uint256"
+					}
+				],
+				"name": "callback",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "callbackGasLimit",
+				"outputs": [
+					{
+						"internalType": "uint32",
+						"name": "",
+						"type": "uint32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "requestId",
+						"type": "uint256"
+					}
+				],
+				"name": "cancel",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "cancelPeriod",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "factory",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "requestId",
+						"type": "uint256"
+					}
+				],
+				"name": "getGameInfo",
+				"outputs": [
+					{
+						"components": [
+							{
+								"components": [
+									{
+										"internalType": "uint256",
+										"name": "requestId",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "gameId",
+										"type": "uint256"
+									},
+									{
+										"internalType": "address",
+										"name": "pool",
+										"type": "address"
+									},
+									{
+										"internalType": "address",
+										"name": "player",
+										"type": "address"
+									},
+									{
+										"internalType": "uint256",
+										"name": "betTime",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "betNumber",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "luckyNumber",
+										"type": "uint256"
+									},
+									{
+										"internalType": "enum DiceType.Direction",
+										"name": "direction",
+										"type": "uint8"
+									},
+									{
+										"internalType": "enum DiceType.GameResult",
+										"name": "result",
+										"type": "uint8"
+									},
+									{
+										"internalType": "enum DiceType.GameStatus",
+										"name": "status",
+										"type": "uint8"
+									},
+									{
+										"internalType": "bool",
+										"name": "isNativeToken",
+										"type": "bool"
+									}
+								],
+								"internalType": "struct DiceType.Game",
+								"name": "game",
+								"type": "tuple"
+							},
+							{
+								"components": [
+									{
+										"internalType": "uint256",
+										"name": "id",
+										"type": "uint256"
+									},
+									{
+										"internalType": "address",
+										"name": "player",
+										"type": "address"
+									},
+									{
+										"internalType": "address",
+										"name": "referrer",
+										"type": "address"
+									},
+									{
+										"internalType": "uint256",
+										"name": "betAmount",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "referralFee",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "rewardsFee",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "frozenPoolAmount",
+										"type": "uint256"
+									},
+									{
+										"internalType": "bool",
+										"name": "handled",
+										"type": "bool"
+									},
+									{
+										"internalType": "enum PoolType.GameResult",
+										"name": "result",
+										"type": "uint8"
+									}
+								],
+								"internalType": "struct PoolType.LockInfo",
+								"name": "lock",
+								"type": "tuple"
+							}
+						],
+						"internalType": "struct DiceType.GameInfo",
+						"name": "gameInfo",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_factory",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_nativeWrapper",
+						"type": "address"
+					},
+					{
+						"internalType": "uint32",
+						"name": "_callbackGasLimit",
+						"type": "uint32"
+					}
+				],
+				"name": "initialize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "nativeWrapper",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "referralFeeRate",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "newBankerAdvantageFeeRate",
+						"type": "uint256"
+					}
+				],
+				"name": "setBankerAdvantageFeeRate",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint32",
+						"name": "newCallbackGasLimit",
+						"type": "uint32"
+					}
+				],
+				"name": "setCallbackGasLimit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "newCancelPeriod",
+						"type": "uint256"
+					}
+				],
+				"name": "setCancelPeriod",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "newReferralFeeRate",
+						"type": "uint256"
+					}
+				],
+				"name": "setReferralFeeRate",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"author": "Debet",
+			"kind": "dev",
+			"methods": {
+				"bet(address,uint256,address,uint256,uint8)": {
+					"details": "Emit the Bet event",
+					"params": {
+						"amount": "The amount od token to bet in the game",
+						"direction": "The direction of the bet (0 for UNDER, 1 for OVER) UNDER means the user wins when the lucky number is less than the number the user bet on OVER  means the user wins when the lucky number is greater than the number the user bet on",
+						"number": "The number player bet on",
+						"referrer": "The address of referrer who recommends player to bet",
+						"token": "The address of the underlying token"
+					}
+				},
+				"betNativeToken(uint256,address,uint256,uint8)": {
+					"details": "Emit the Bet event",
+					"params": {
+						"amount": "The amount of native token to bet in the game",
+						"direction": "The direction of the bet (0 for UNDER, 1 for OVER) UNDER means the user wins when the lucky number is less than the number the user bet on OVER  means the user wins when the lucky number is greater than the number the user bet on",
+						"number": "The number player bet on",
+						"referrer": "The address of referrer who recommends player to bet"
+					}
+				},
+				"calculateGasRequired(uint256)": {
+					"params": {
+						"gasPriceWei": "Estimated gas price at time of request"
+					},
+					"returns": {
+						"_0": "Amount of native token required"
+					}
+				},
+				"callback(uint256,uint256[],uint256)": {
+					"details": "Emit the Roll eventOnly random engine contract can call this function",
+					"params": {
+						"randomWords": "The random works array (only 1 element in the array)",
+						"requestId": "The id of the game which is rolled",
+						"rewards": "The amount of random engine rewards"
+					}
+				},
+				"cancel(uint256)": {
+					"details": "Emit the Cancel event",
+					"params": {
+						"requestId": "The id of the game which is requested to cancel"
+					}
+				},
+				"getGameInfo(uint256)": {
+					"params": {
+						"requestId": "The id of the game"
+					},
+					"returns": {
+						"gameInfo": "The game information"
+					}
+				},
+				"initialize(address,address,uint32)": {
+					"params": {
+						"_callbackGasLimit": "The gas limit in callback function",
+						"_factory": "TThe address of factory contract",
+						"_nativeWrapper": "The address of wrapped native token contract"
+					}
+				},
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"setBankerAdvantageFeeRate(uint256)": {
+					"details": "Emit the UpdateBankerAdvantageFeeRate eventOnly owner can call this function",
+					"params": {
+						"newBankerAdvantageFeeRate": "The advantage ratio of the banker in the game"
+					}
+				},
+				"setCallbackGasLimit(uint32)": {
+					"details": "Emit the UpdateCallbackGasLimit eventOnly owner can call this function",
+					"params": {
+						"newCallbackGasLimit": "The gas limit in callback function"
+					}
+				},
+				"setCancelPeriod(uint256)": {
+					"details": "Emit the UpdateCancelPeriod eventOnly owner can call this functionUsers can cancel their bets if there is no draw after the cancellation time",
+					"params": {
+						"newCancelPeriod": "The cancel period"
+					}
+				},
+				"setReferralFeeRate(uint256)": {
+					"details": "Emit the UpdateReferralFeeRate eventOnly owner can call this function",
+					"params": {
+						"newReferralFeeRate": "The ratio of referral fees in bet amount"
+					}
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				}
+			},
+			"title": "Dice contract",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"MAX_NUMBER()": {
+					"notice": "The player must bet less than this value"
+				},
+				"bankerAdvantageFeeRate()": {
+					"notice": "The advantage ratio of the banker in the game"
+				},
+				"bet(address,uint256,address,uint256,uint8)": {
+					"notice": "Player can bet ERC20 token in this function"
+				},
+				"betNativeToken(uint256,address,uint256,uint8)": {
+					"notice": "Player can bet native token in this function"
+				},
+				"calculateGasRequired(uint256)": {
+					"notice": "get the amount of native token required as gas when player bet"
+				},
+				"callback(uint256,uint256[],uint256)": {
+					"notice": "Roll for a game"
+				},
+				"callbackGasLimit()": {
+					"notice": "The gas limit in callback function"
+				},
+				"cancel(uint256)": {
+					"notice": "Anyone can cancel a game that has not been drawn within the cancellation period"
+				},
+				"cancelPeriod()": {
+					"notice": "The cancel period"
+				},
+				"factory()": {
+					"notice": "The address of factory contract"
+				},
+				"getGameInfo(uint256)": {
+					"notice": "Get the sepecified game information by requestId"
+				},
+				"initialize(address,address,uint32)": {
+					"notice": "Initialize the dice contract"
+				},
+				"nativeWrapper()": {
+					"notice": "The address of wrapped native token contract"
+				},
+				"referralFeeRate()": {
+					"notice": "The ratio of referral fees in bet amount"
+				},
+				"setBankerAdvantageFeeRate(uint256)": {
+					"notice": "Set the advantage ratio of the banker in the game"
+				},
+				"setCallbackGasLimit(uint32)": {
+					"notice": "Set the gas limit in callback function"
+				},
+				"setCancelPeriod(uint256)": {
+					"notice": "Set the cancel period"
+				},
+				"setReferralFeeRate(uint256)": {
+					"notice": "Set the ratio of referral fees in bet amount"
+				}
+			},
+			"notice": "Implemention of the Dice contract in debet protocol",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"games/dice/Dice.sol": "Dice"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol": {
+			"keccak256": "0x247c62047745915c0af6b955470a72d1696ebad4352d7d3011aef1a2463cd888",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d7fc8396619de513c96b6e00301b88dd790e83542aab918425633a5f7297a15a",
+				"dweb:/ipfs/QmXbP4kiZyp7guuS7xe8KaybnwkRPGrBc2Kbi3vhcTfpxb"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol": {
+			"keccak256": "0xf2efdd01f01f127e8b631675a359cd8cabfbcdcd2e8587ecf906181bcd667bc9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e5d8670ec00368fa7ff56ae265337d0b7d454709e639e350e5c9677ae32574ed",
+				"dweb:/ipfs/QmPRmAmjKkZLatrKjbrj78GqW34b5hwx72WqwoBvyg4QcV"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol": {
+			"keccak256": "0xabed77589961adbaaa36817e0914bcbe4c447311c9451bf3fc9b073c1f092d8d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9b8f12b15b67cc26a684dc7913e279fe016a0baa44778fa5406e38b17b027b5a",
+				"dweb:/ipfs/QmejTVV9v4E6WtztCfpbVHDNV8rd2p3qMzrCiBgvTepQby"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol": {
+			"keccak256": "0x963ea7f0b48b032eef72fe3a7582edf78408d6f834115b9feadd673a4d5bd149",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d6520943ea55fdf5f0bafb39ed909f64de17051bc954ff3e88c9e5621412c79c",
+				"dweb:/ipfs/QmWZ4rAKTQbNG2HxGs46AcTXShsVytKeLs7CUCdCSv5N7a"
+			]
+		},
+		"@openzeppelin/contracts/security/ReentrancyGuard.sol": {
+			"keccak256": "0x0e9621f60b2faabe65549f7ed0f24e8853a45c1b7990d47e8160e523683f3935",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://287a2f8d5814dd0f05f22b740f18ca8321acc21c9bd03a6cb2203ea626e2f3f2",
+				"dweb:/ipfs/QmZRQv9iuwU817VuqkA2WweiaibKii69x9QxYBBEfbNEud"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+			"keccak256": "0x24b04b8aacaaf1a4a0719117b29c9c3647b1f479c5ac2a60f5ff1bb6d839c238",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://43e46da9d9f49741ecd876a269e71bc7494058d7a8e9478429998adb5bc3eaa0",
+				"dweb:/ipfs/QmUtp4cqzf22C5rJ76AabKADquGWcjsc33yjYXxXC4sDvy"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0x9750c6b834f7b43000631af5cc30001c5f547b3ceb3635488f140f60e897ea6b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5a7d5b1ef5d8d5889ad2ed89d8619c09383b80b72ab226e0fe7bde1636481e34",
+				"dweb:/ipfs/QmebXWgtEfumQGBdVeM6c71McLixYXQP5Bk6kKXuoY4Bmr"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+			"keccak256": "0x8de418a5503946cabe331f35fe242d3201a73f67f77aaeb7110acb1f30423aca",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5a376d3dda2cb70536c0a45c208b29b34ac560c4cb4f513a42079f96ba47d2dd",
+				"dweb:/ipfs/QmZQg6gn1sUpM8wHzwNvSnihumUCAhxD119MpXeKp8B9s8"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/extensions/draft-IERC20Permit.sol": {
+			"keccak256": "0xf41ca991f30855bf80ffd11e9347856a517b977f0a6c2d52e6421a99b7840329",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b2717fd2bdac99daa960a6de500754ea1b932093c946388c381da48658234b95",
+				"dweb:/ipfs/QmP6QVMn6UeA3ByahyJbYQr5M6coHKBKsf3ySZSfbyA8R7"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol": {
+			"keccak256": "0x032807210d1d7d218963d7355d62e021a84bf1b3339f4f50be2f63b53cccaf29",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://11756f42121f6541a35a8339ea899ee7514cfaa2e6d740625fcc844419296aa6",
+				"dweb:/ipfs/QmekMuk6BY4DAjzeXr4MSbKdgoqqsZnA8JPtuyWc6CwXHf"
+			]
+		},
+		"@openzeppelin/contracts/utils/Address.sol": {
+			"keccak256": "0xd6153ce99bcdcce22b124f755e72553295be6abcd63804cfdffceb188b8bef10",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://35c47bece3c03caaa07fab37dd2bb3413bfbca20db7bd9895024390e0a469487",
+				"dweb:/ipfs/QmPGWT2x3QHcKxqe6gRmAkdakhbaRgx3DLzcakHz5M4eXG"
+			]
+		},
+		"@openzeppelin/contracts/utils/Context.sol": {
+			"keccak256": "0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92",
+				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
+			]
+		},
+		"games/dice/Dice.sol": {
+			"keccak256": "0xbef2209d63c4560641d18229eb9f7caa6d2456c1b1df9eed7ab647dc2c56782b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9b67121ea405db50cec398836190b53fcefe4ed734bd39c5fafc8249d455b6e6",
+				"dweb:/ipfs/Qmd8ij9koWVxG2Ud7AwuzdcBYS3MsjNYf7JHZKvcTYhvA2"
+			]
+		},
+		"games/dice/DiceConfig.sol": {
+			"keccak256": "0xaf299f5d31dbaae74bc9cff5243cc57c1f2acd85aaa8b1a07dba52c19be44c96",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f47a30db26bc82e589554f49e9978ec444a083de548543a9416cdcdc8da579b7",
+				"dweb:/ipfs/QmY5uWs8YJ4gfAuashuK4RXXsUR1a5DE4hK2WD2rzLaeMT"
+			]
+		},
+		"games/dice/DiceLogic.sol": {
+			"keccak256": "0xbe9c425855fa80d078427a0fc127f93187d5d54f6f1db640c05b3789319a55b3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6dc26efed956cafab8834bfef9096c90b92b127488f96c8ee2c89288290fda7a",
+				"dweb:/ipfs/QmZ4vFmLmimmoTwS6pAJRcYwJDtyhQmfW6vbSKVC5SNZce"
+			]
+		},
+		"games/dice/DiceStorage.sol": {
+			"keccak256": "0x1899d3b73afc4ad05a93e7ef7d467ce466af35e1f0ce45a68bd7d6ce3d130117",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://42fc1339807b8272462f0a707368d3cb829b3e035af129f1996aa8e8661886bc",
+				"dweb:/ipfs/QmRNmCSLUTfsvB1xafrdDg3oqCd3w9XpGzGNWUc5weg1gi"
+			]
+		},
+		"interfaces/DiceType.sol": {
+			"keccak256": "0xfbc816bf9c01a050d8864bbc7917365862a7cdb55399c0443f0f4a31cb203287",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0bff959a96779631b92f82ff17dbdaaed4e8cd039f82ecf1d033d98996584a2a",
+				"dweb:/ipfs/QmS9SYShXr21f2283zj2GuXZe3x8JjT7CGGkWNvU7o7SZZ"
+			]
+		},
+		"interfaces/IDiceConfig.sol": {
+			"keccak256": "0xc80ccfeb356c39f9b6e609d23fad775953aba937df8720aeced1566bbadac8e3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://014876c36bc9c4e3d4fd15cc644d1023c310ab21cc7922881ef6b1061fc61d25",
+				"dweb:/ipfs/QmSvWM9KQ5xREJWtmk9apC79aUAK4W3LnjA6jZuptSwtVa"
+			]
+		},
+		"interfaces/IDiceLogic.sol": {
+			"keccak256": "0xd9b4a3c455fdec62b0a4e970371111d5cd86c7eecbedd3e9e96c18bb7036a252",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://20f2126aaa9c643378786ba6024f5ccf0af7cdb55241e27db5dbf6538616ecc7",
+				"dweb:/ipfs/Qmd3RjFVVdzNKebcevwbozmiVjyBGepB2p7vqn1Rt95y64"
+			]
+		},
+		"interfaces/IDiceStorage.sol": {
+			"keccak256": "0x8ef7b219a5bfe1082ebe635a4e2a4ce1fb1afa38d09d925f988743ccfcc2ec89",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6a0c7d99e480d9346c7d4deeec3d6407c286c0f683e56f0bc85b5ad3c92cf972",
+				"dweb:/ipfs/QmQLwUPxDqvQsNvCXpynqTyiEPVTG7Z1R4pmNFphwiP1Bg"
+			]
+		},
+		"interfaces/IFactory.sol": {
+			"keccak256": "0xde756adf31f6f541cb3808e0f8da8d22e4e41598fbfcc8a6b36440df2fd070c4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://75f28f75a1f432626244d45b77812e9c7ae15c7c525ed11bad6332f045ed25ff",
+				"dweb:/ipfs/QmenYqLyCxU9vpBBUzMbCkjeYR8Vw8U58oVviTNeomdVWp"
+			]
+		},
+		"interfaces/IFactoryConfig.sol": {
+			"keccak256": "0x43bc56e98418de1c3496b9e3e8b88f03fcc1d80d6b5d1a4ce05ae8c73e6cf6f4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e2fd68aeee51b476c9a909367d0699733d284b70a62ec18b3597bedc1faa551c",
+				"dweb:/ipfs/QmaxFsqaxTTDfiRUqgtjR54brKnhPZFCLQDs9X9u5aEAv6"
+			]
+		},
+		"interfaces/IFactoryLogic.sol": {
+			"keccak256": "0x97a26e073ad3b603a920dd519cc27001c93676e534a8eb3e04ba3ac68e347e86",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0669747f56996132a2557a0aabf79c843df5340cc7c2877bfda9b534498020ae",
+				"dweb:/ipfs/QmQGL2veYuc9SrDaFPyGZdPSDkTvNgdY9Ce4LPfx5CxPi2"
+			]
+		},
+		"interfaces/IFactoryStorage.sol": {
+			"keccak256": "0x9a7552fa5fee3dab69b82e32ab24b2c34b8d776d8f7b4688ab59210b60bbb650",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2e64b7f7eb3c09ad97dbfa192865d1e3d08f28b9693bcddfb5033e2863adfedb",
+				"dweb:/ipfs/QmbZ1vaocfgmxrvoK269z1fH59PMG1z9m8suHhbYHUmWCs"
+			]
+		},
+		"interfaces/IPool.sol": {
+			"keccak256": "0xd2e003405e5b4395d44798245411e18a254ef6ac96ad7365b35309e95286729d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://67adbceafa6717fc78073884f6eff357bceb1a1c6187d2854d1777a59e7de474",
+				"dweb:/ipfs/QmQ8QEDgc8rbBBGVe8m81msLKhwourwwYSrsHbaMaWA87q"
+			]
+		},
+		"interfaces/IRandomEngine.sol": {
+			"keccak256": "0x0b5c6f72f00b015fd467aad4169b54c83a2358406ce235a40b7083bb388514bb",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://65e9215b415017d0ef2484cc5e5969881996b7162368d3777442b766c886acce",
+				"dweb:/ipfs/QmS1KiBudVTgXATFBp2azdmiYa5xhFTykzBgp9XCYVD2di"
+			]
+		},
+		"interfaces/IRandomEngineConfig.sol": {
+			"keccak256": "0x275cc4ea931e43246d5b1671dbdd77ce3a94f29addd154b4720c548c30e6e759",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://398cfb347ad2464970e8900a7b8a0d6b8282055f4165acb4118bfcb735e49a00",
+				"dweb:/ipfs/Qmd175WjKYVPFfni93CJtsUSwoLcSh4FmS3JqANBoGgtTT"
+			]
+		},
+		"interfaces/IRandomEngineLogic.sol": {
+			"keccak256": "0x91a932e57c521d0cbe1edf2de738fc72cb93838d89317ee9899099bed9107aa2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c7f2bf591ed7bc18bfcd4d78b1094924196a2b97f6fb57334a35ca7020ebf36b",
+				"dweb:/ipfs/Qmdtr5CJeDWgTqShwer4RyYurVm6gFDUCqQXuDziJ5AaSF"
+			]
+		},
+		"interfaces/PoolType.sol": {
+			"keccak256": "0x0a888ffbb8d5f3c120af1a58d93317317881009235471732275cfb9eb5f7ced1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1ccb9a16c82336ae89ea3e8aee3ea245e01a345066dc0863cefad7cd445ba408",
+				"dweb:/ipfs/QmYxLXG7ASyg7dbL6oVM5GkhLf1cqaJEvGRFwDqnEoQ4fb"
+			]
+		},
+		"interfaces/external/INativeWrapper.sol": {
+			"keccak256": "0x4928c37009b03e152e4eac53f5a35e465a37462123c897bb81b7588671f63303",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bd77a60c91f3fc4ce19a864a47b6bbda3a05a7c0fe8e8661507bf5d92880e8e1",
+				"dweb:/ipfs/QmWnwXoj2Esb8PoqtnAoywz728pPPG4LMj4Rdd8X4Eqm68"
+			]
+		},
+		"utils/DebetBase.sol": {
+			"keccak256": "0x87fd380807fe46a3e8a7c66e2dc824085ed5cd758c8d49dd4e09ea8345257b8e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9053dd2fcc1f4307ea8c0c6f07f5a25ea0d8c0966132880a9131d37236cf4867",
+				"dweb:/ipfs/QmaERAJU2DPyWisohLDCgbR3wQH8s81cdZ5DaA9M1Sy2ts"
+			]
+		}
+	},
+	"version": 1
+}
